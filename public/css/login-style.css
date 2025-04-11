@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     background-color: #F8DFF3;
-    font-family: Poppins;
+    font-family: 'Poppins';
 }
 
 h1 {
@@ -14,52 +16,117 @@ h1 {
     text-align: center;
     color: #7E4F63;
     font-size: 55px;
+    font-family: 'Poppins';
 }
 
 .main-container {
-    position: fixed;
+    /* position: fixed;
     inset: 0px;
     width: 48rem;
     height: 37rem;
     max-width: 100vw;
     max-height: 100dvh;
-    margin: auto;
+    margin: auto; */
+    max-width: 48rem;
     background-color: #f3cbeb;
     border-radius: 50px;
 }
 
 .form h2 {
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-weight: 600;
     font-size: 45px;
     margin-top: 40px;
     color: #7E4F63;
 }
 
-.form  {
+.form {
     text-align: center;
 }
 
 .form p {
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-size: 15px;
     margin-top: 20px;
     color: #7E4F63;
 }
 
+.form-container-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-container input {
-    width: 70%;
+    /* width: 70%;
     margin: 15px 0 5px 0;
-    padding: 12px 20px;
+    padding: 12px 20px; */
     color: #7E4F63;
     border: none;
-    outline:none;
-    border-bottom: 2px solid black;
+    outline: none;
+    border-bottom: 2px solid #7E4F63;
+    border-radius: 0px;
     background-color: transparent;
 }
 
+.form-control#username:focus {
+    /* Reset border to default (use the actual color from inspecting) */
+    border-color: #7E4F63 !important;
+    /* Remove Bootstrap's focus box-shadow */
+    box-shadow: none !important;
+    /* Ensure no other outline appears */
+    outline: 0 !important;
+    /* Use 0 or none */
+}
+
+
+.form-control {
+    background-color: none !important;
+    font-family: 'Poppins' !important;
+    font-size: 1rem !important;
+}
+
+
+:root {
+    --input-default-bg: #f3cbeb;
+    --input-default-text: #212529;
+    --input-default-border: #7E4F63;
+    ;
+}
+
+.form-control:focus {
+    border-color: var(--input-default-border) !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+    background-color: #f3cbeb !important;
+    font-family: 'Poppins' !important;
+    font-size: 1rem !important;
+}
+
+
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px var(--input-default-bg) inset !important;
+    -webkit-text-fill-color: var(--input-default-text) !important;
+    border-color: var(--input-default-border) !important;
+    font-family: 'Poppins' !important;
+    font-size: 1rem !important;
+}
+
+/* .form-control:active {
+    background-color: var(--input-default-bg) !important;
+    border-color: var(--input-default-border) !important;
+    box-shadow: none !important;
+    font-family: 'Poppins' !important;
+    font-size: 1rem !important;
+} */
+
+
+
 .button-container button {
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-size: 16px;
     background-color: #ec6fad;
     border-radius: 10px;
@@ -74,51 +141,53 @@ h1 {
 }
 
 ::placeholder {
-    font-family: Poppins;
+    font-family: 'Poppins';
     font-size: 16px;
     color: #7E4F63;
     opacity: 1;
 }
 
-.button-container a{
+.button-container a {
     color: #7E4F63;
-    font-family: Poppins;
+    font-family: 'Poppins';
 }
 
 
 .form-options {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-family: Poppins;
+    align-items: center; */
+    font-family: 'Poppins';
     font-weight: normal;
     font-size: 18px;
     color: #7E4F63;
-    margin: 40px 0 40px 0;
+    /* margin: 40px 0 40px 0; */
 }
 
 .forgot-password {
     color: #7E4F63;
-    margin-right: 110px;
+    /* margin-right: 110px; */
 }
 
 .remember-me {
-    margin-left: 110px;
-    display: inline-flex;
-    align-items: center;
+    /* margin-left: 110px; */
+    /* display: inline-flex; */
+    /* align-items: center; */
 }
 
 input[type="checkbox"] {
-    height: 24px;
-    width: 24px;
-    margin-right: 10px;
+    /* height: 24px;
+    width: 24px; */
+    /* margin-right: 10px; */
+    /* margin-left: 10px; */
     opacity: 0.2;
 }
 
 .form-signup {
     display: flex;
-    align-items: flex-start;
-    margin-left: 110px;
+    align-items: center;
+    justify-content: center;
+    /* margin-left: 110px; */
 }
 
 .signup {
@@ -139,64 +208,66 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  .main-container {
-    width: 35rem;
-    height: 24rem;
-    margin: 180px auto;
-  }
+    .main-container {
+        width: 35rem;
+        height: 24rem;
+        margin: 180px auto;
+    }
 
-  .form h2{
-    font-size: 2em;
-    margin-top: 30px;
-  }
+    .form h2 {
+        font-size: 2em;
+        margin-top: 30px;
+    }
+
     .button-container button {
-    font-size: 14px;
-    margin: 25px 8px;
-    padding: 10px 22px;
+        font-size: 14px;
+        margin: 25px 8px;
+        padding: 10px 22px;
     }
 
     .form-container input {
-        margin-top: 0;
+        /* margin-top: 0; */
     }
 
 
     .button-container a {
-    font-size: 14px;
+        font-size: 14px;
     }
 }
 
 
 @media(max-width: 767px) {
-  .main-container {
-    margin: 160px auto;
-    width: 30rem;
-    height:20rem;
-  }
+    .main-container {
+        margin: 160px auto;
+        width: 30rem;
+        height: 20rem;
+    }
 
-  .form h2{
-    font-size: 1.5em;
-    margin-top: 15px;
-  }
+    .form h2 {
+        font-size: 1.5em;
+        margin-top: 15px;
+    }
+
     .button-container button {
-    font-size: 12px;
-    margin: 20px 6px;
-    padding: 8px 18px;
+        font-size: 12px;
+        margin: 20px 6px;
+        padding: 8px 18px;
     }
 
     .form-container input {
-        margin-top: 0;
+        /* margin-top: 0; */
     }
 
     .button-container a {
-    font-size: 12px;
+        font-size: 12px;
     }
 }
 
 
 @media(max-width: 492px) {
-  .main-container {
-    margin: 160px auto;
-    width: 24rem;
-    height:20rem;
-  }
+    .main-container {
+        margin: 160px auto;
+        width: 24rem;
+        height: 20rem;
+    }
 }
