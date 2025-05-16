@@ -65,20 +65,20 @@ function updateProductDetails(event) {
                     const formattedPrice = `₱ ${values.price}`;
                     cells[5].innerText = formattedPrice;
                     fetchProductDetails(currentProductId);
-                    alert(data.message);
+                    alert("Item successfully edited!");
                 }
             }
         })
     .catch(error=> console.error('Error', error));
 }
 
-function deleteProduct(id, path) {
+function deleteProduct(id) {
     fetch('/admin/inventory/delete', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({id,path})
+        body: JSON.stringify({id})
     })
     .then(response=>response.json())
     .then(data=> {
@@ -88,7 +88,6 @@ function deleteProduct(id, path) {
                 if(row) {
                     row.remove();
                     refreshItemDisplayed();
-                    alert(data.message);
                 }
             }
             console.log(data.message);

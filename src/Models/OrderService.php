@@ -89,8 +89,7 @@ class OrderService
         JOIN products p ON oi.product_id = p.id
         JOIN orders o ON oi.order_id = o.id
         JOIN users u ON o.user_id = u.id
-        WHERE oi.status = 'Pending'
-        ORDER BY o.pickup_date, pickup_time";
+        WHERE oi.status = 'Pending'";
         $stmt = mysqli_prepare($this->connect, $sql);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);

@@ -8,7 +8,6 @@ class FormValidator
     private $EmployeeLoginFields = ['username', 'password'];
     private $EmployeeRegisterFields = ['first_name', 'last_name', 'email', 'contact_number', 'username', 'password'];
     private $userFields = ['email', 'password'];
-    private $editProfileFields = ['name', 'contact_number'];
     private $errors = [];
 
     public function __construct($post)
@@ -40,47 +39,6 @@ class FormValidator
     public function validateEmployeeLogin(): bool
     {
         return $this->validateEmployeeLoginFields();
-    }
-
-    public function validateUserProfile(): bool
-    {
-        if (!$this->validateProfileFields() or !$this->validateProfileName() or !$this->validateProfileContactNumber()) {
-            return false;
-        }
-        return true;
-    }
-
-    private function validateProfileFields(): bool
-    {
-        foreach ($this->editProfileFields as $field) {
-            if (empty($this->data[$field])) {
-                switch ($field) {
-                    case 'name':
-                        $this->errors['error'] = "Invalid input. Please try again.";
-                        break;
-                    case 'contact_number':
-                        $this->errors['error'] = "Invalid input. Please try again.";
-                        break;
-                }
-            }
-        }
-        return empty($this->errors);
-    }
-
-    private function validateProfileName(): bool
-    {
-        if (!preg_match("/^[a-zA-Z-' ]*$/", $this->data['name'])) {
-            $this->errors['error'] = "Invalid input. Please try again.";
-        }
-        return empty($this->errors);
-    }
-
-    private function validateProfileContactNumber(): bool
-    {
-        if (!preg_match('/^\d{11}$/', $this->data['contact_number'])) {
-            $this->errors['error'] = "Invalid input. Please enter exactly 11 digits.";
-        }
-        return empty($this->errors);
     }
 
     private function validateEmployeeLoginFields(): bool
@@ -133,7 +91,6 @@ class FormValidator
         if (!preg_match("/^[a-zA-Z-' ]*$/", $this->data['first_name'])) {
             $this->errors['first_name'] = "Only letters and white space allowed";
         }
-        return empty($this->errors);
     }
 
     private function validateLastName(): bool
@@ -141,7 +98,6 @@ class FormValidator
         if (!preg_match("/^[a-zA-Z-' ]*$/", $this->data['last_name'])) {
             $this->errors['last_name'] = "Only letters and white space allowed";
         }
-        return empty($this->errors);
     }
 
     private function validateEmail(): bool

@@ -49,22 +49,7 @@ class UserService
     {
         $sql = "UPDATE users SET name = ?, contact_number = ? where id = ?";
         $sql_statement = mysqli_prepare($this->connect, $sql);
-        mysqli_stmt_bind_param($sql_statement, 'ssi', $user_details['name'], $user_details['contact_number'], $user_id);
+        mysqli_stmt_bind_param($sql_statement, 'ssi', $user_details->name, $user_details->contact_number, $user_id);
         mysqli_stmt_execute($sql_statement);
-    }
-
-
-    public function isUserDetailsUpdated($user_id)
-    {
-        $sql = "SELECT * FROM users where id = ? LIMIT 1";
-        $stmt = mysqli_prepare($this->connect, $sql);
-        mysqli_stmt_bind_param($stmt, 'i', $user_id);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $row = mysqli_fetch_assoc($result);
-        if (is_null($row['name']) || is_null($row['contact_number'])) {
-            return false;
-        }
-        return true;
     }
 }
